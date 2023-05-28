@@ -1,7 +1,7 @@
 public class Product {
-    private String name;
-    private String brand;
-    private double price;
+    protected String name;
+    protected String brand;
+    protected double price;
 
     double getPrice(){
         return price;
@@ -33,16 +33,17 @@ public class Product {
         }
     }
 
-    private void checkName(String inputName){
-        if (inputName.length() < 5){
-            inputName = "product";
+    private void checkName(String name){
+        if (name.length() <= 3){
+            this.name = "product";
         }
         else{
-            inputName = inputName;
+            this.name = name;
         }
+        this.brand = brand;
     }
 
-    String displayInfo(){
+    public String displayInfo(){
         return String.format("%s - %s - %f", brand, name, price);
     }
 }
